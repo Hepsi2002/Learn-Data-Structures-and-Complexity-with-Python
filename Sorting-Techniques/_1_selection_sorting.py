@@ -16,5 +16,7 @@ print(selectionsort(A))
 """
 Time complexity for selection sort is O(n^2)
 since for loop 'i' runs for n times and also 'j'
+'j' for n times
+n*n=n^2
 """
 
