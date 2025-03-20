@@ -56,3 +56,5 @@ i=L.search(20)
 print("result:",i)
 i=L.search(8)
 print("result:",i)
+
+'''Time complexity for LinkedList is O(N).'''
