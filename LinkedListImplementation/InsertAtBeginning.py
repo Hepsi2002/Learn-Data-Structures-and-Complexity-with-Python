@@ -33,6 +33,15 @@ class LinkedList:
                 return index
             p = p._next
             index=index+1
+    def insert_begin(self,e):
+        newest = _Node(e,None)
+        if self.isempty():
+            self._head = newest
+            self._tail = newest
+        else:
+            newest._next = self._head
+            self._head = newest
+        self._size +=1
 
     def display(self):
         p=self._head
@@ -46,13 +55,15 @@ L = LinkedList()
 L.addlast(2)
 L.addlast(6)
 L.addlast(12)
-L.display()
-print("Size of the list",len(L))
 L.addlast(12)
 L.addlast(8)
 L.display()
 print("Size of the list",len(L))
-i=L.search(20)
-print("result:",i)
-i=L.search(8)
-print("result:",i)
+L.insert_begin(9)
+L.display()
+print("Size of the list",len(L))
+L.insert_begin(5)
+L.display()
+print("Size of the list",len(L))
+
+
