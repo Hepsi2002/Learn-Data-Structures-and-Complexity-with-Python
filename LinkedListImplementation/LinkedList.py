@@ -24,12 +24,23 @@ class LinkedList:
             self._tail._next = newest
         self._tail = newest
         self._size += 1
+
+    def search(self,key):
+        p = self._head
+        index = 0
+        while p:
+            if p._element == key:
+                return index
+            p = p._next
+            index=index+1
+
     def display(self):
         p=self._head
         while p:
             print(p._element,end='-->')
             p = p._next
         print()
+
 
 L = LinkedList()
 L.addlast(2)
@@ -41,3 +52,5 @@ L.addlast(12)
 L.addlast(8)
 L.display()
 print("Size of the list",len(L))
+i=L.search(8)
+print("result:",i)
