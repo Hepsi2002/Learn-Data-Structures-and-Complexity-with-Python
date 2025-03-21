@@ -26,42 +26,47 @@ class LinkedList:
         self._tail = newest
         self._size += 1
 
-    def search(self,key):
+    def insert_begin(self,e):
+        newest = _Node(e,None)#New node is created
+        if self.isempty():#if the node is the first node the head and tail will be the first node
+            self._head = newest
+            self._tail = newest
+        else:
+            newest._next = self._head#The head value is changed(newest node) since the element is added at the beginning of the node, the first node address will be stored in the newest node
+            self._head = newest#The head will be the newest node
+        self._size +=1#size will be incremented as new node is added
+    #Time complexity of the insert_begin function will be O(1)
+
+    def insert(self,e,position):
+        newest = _Node(e,None)
+        #p,i are used to traverse the list from head to tail.
         p = self._head
+        i = 1
+        while i < position-1:
+        #we are traversing the lsit till the given position-1 where the new node has to be inserted.
+            p = p._next#moves to the next node
+            i = i+1
+        newest._next = p._next#since we dont want to loose reference we will store the address of the p.next
+        p._next = newest#newest node reference is stored in the p.next making a link without loosing the reference
+        self._size += 1
+
+    def search(self,key):
+        p = self._head#To keep track of node & the linked list
         index = 0
         while p:
             if p._element == key:
                 return index
-            p = p._next
+            p = p._next#if element is not equal to key, p value will be moved
             index=index+1
-    def insert_begin(self,e):
-        newest = _Node(e,None)
-        if self.isempty():
-            self._head = newest
-            self._tail = newest
-        else:
-            newest._next = self._head
-            self._head = newest
-        self._size +=1
-
-    def insert(self,e,position):
-        newest = _Node(e,None)
-        p = self._head
-        i = 1
-        while i < position-1:
-            p = p._next
-            i = i+1
-        newest._next = p._next
-        p._next = newest
-        self._size += 1
+        return -1#when key is not found
 
     def display(self):
         p=self._head
-        while p:
+        while p:#we can use for loop but we have used while loop as we need size.
             print(p._element,end='-->')
-            p = p._next
+            p = p._next#For the last node the value of p will be none so the loop will terminate
         print()
-
+    #Time complexity of the display method will be O(N).
 
 L = LinkedList()
 L.addlast(2)
