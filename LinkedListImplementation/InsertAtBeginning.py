@@ -25,6 +25,16 @@ class LinkedList:
         self._tail = newest
         self._size += 1
 
+    def insert_begin(self,e):
+        newest = _Node(e,None)#New node is created
+        if self.isempty():#if the node is the first node the head and tail will be the first node
+            self._head = newest
+            self._tail = newest
+        else:
+            newest._next = self._head#The head value is changed(newest node) since the element is added at the beginning of the node, the first node address will be stored in the newest node
+            self._head = newest#The head will be the newest node
+        self._size +=1#size will be incremented as new node is added
+    #Time complexity of the insert_begin function will be O(1)
     def search(self,key):
         p = self._head
         index = 0
@@ -33,15 +43,7 @@ class LinkedList:
                 return index
             p = p._next
             index=index+1
-    def insert_begin(self,e):
-        newest = _Node(e,None)
-        if self.isempty():
-            self._head = newest
-            self._tail = newest
-        else:
-            newest._next = self._head
-            self._head = newest
-        self._size +=1
+
 
     def display(self):
         p=self._head
