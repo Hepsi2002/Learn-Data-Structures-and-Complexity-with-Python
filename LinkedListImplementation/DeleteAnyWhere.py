@@ -1,4 +1,4 @@
-'''This is a development of the previous demonstration not a new program.'''
+'''This is a development of the previous demonstration not a new program. Time complexity for each function is given'''
 class _Node:
     __slots__ = '_element','_next'
     def __init__(self,element,next):
@@ -50,7 +50,7 @@ class LinkedList:
         newest._next = p._next#since we dont want to loose reference we will store the address of the p.next
         p._next = newest#newest node reference is stored in the p.next making a link without loosing the reference
         self._size += 1
-
+    #Time complexity of insert is O(N)
 
     def delete_begin(self):
         if self.isempty():
@@ -62,7 +62,7 @@ class LinkedList:
         if self.isempty():
             self._tail = None#When only single node is present and is deleted we then explicitly make the tail as none.
         return e
-
+    #Time complexity is 0(1)
 
     def delete_end(self):#We cannot directly delete the tail. Since we cannot move backwards from tail using next reference
        if self.isempty():
@@ -79,7 +79,7 @@ class LinkedList:
        self._tail._next = None#breaking the link and making the last but one node as none.
        self._size -= 1
        return e
-
+    #Time complexity of delete_end is O(N)
 
     def deleteNode(self,position):
         p = self._head
@@ -91,8 +91,7 @@ class LinkedList:
         p._next = p._next._next#Making a link
         self._size -= 1
         return e
-
-
+    #Time complexity of the deleteNode is O(n)
     def search(self,key):
         p = self._head#To keep track of node & the linked list
         index = 0
@@ -102,7 +101,7 @@ class LinkedList:
             p = p._next#if element is not equal to key, p value will be moved
             index=index+1
         return -1#when key is not found
-
+    #Time complexity of search is O(N)
     def display(self):
         p=self._head
         while p:#we can use for loop but we have used while loop as we need size.
