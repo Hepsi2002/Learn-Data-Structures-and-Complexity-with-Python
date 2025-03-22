@@ -29,21 +29,23 @@ class LinkedList:
 
 
     def search(self,key):
-        p = self._head
+        p = self._head#To keep track of node & the linked list
         index = 0
         while p:
             if p._element == key:
                 return index
-            p = p._next
+            p = p._next#if element is not equal to key, p value will be moved
             index=index+1
-
+        return -1#when key is not found
 
     def display(self):
         p=self._head
-        while p:
+        while p:#we can use for loop but we have used while loop as we need size.
             print(p._element,end='-->')
-            p = p._next
+            p = p._next#For the last node the value of p will be none so the loop will terminate
         print()
+    #Time complexity of the display method will be O(N).
+
 
 
 L = LinkedList()
