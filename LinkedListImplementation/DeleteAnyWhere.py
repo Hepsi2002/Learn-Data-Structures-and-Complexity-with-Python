@@ -51,6 +51,7 @@ class LinkedList:
         p._next = newest#newest node reference is stored in the p.next making a link without loosing the reference
         self._size += 1
 
+
     def delete_begin(self):
         if self.isempty():
             print('Empty List')
@@ -61,6 +62,8 @@ class LinkedList:
         if self.isempty():
             self._tail = None#When only single node is present and is deleted we then explicitly make the tail as none.
         return e
+
+
     def delete_end(self):#We cannot directly delete the tail. Since we cannot move backwards from tail using next reference
        if self.isempty():
             print('Empty List')
@@ -76,6 +79,19 @@ class LinkedList:
        self._tail._next = None#breaking the link and making the last but one node as none.
        self._size -= 1
        return e
+
+
+    def deleteNode(self,position):
+        p = self._head
+        i = 1
+        while i< position -1:
+            p = p._next#move node p to the next node
+            i = i + 1
+        e = p._next._element#Value is stored
+        p._next = p._next._next#Making a link
+        self._size -= 1
+        return e
+
 
     def search(self,key):
         p = self._head#To keep track of node & the linked list
@@ -106,9 +122,10 @@ L.addlast(48)
 L.addlast(9)
 L.display()
 print("Size of the list",len(L))
-del_lastelement = L.delete_end()
-print("Deleted Last Element",del_lastelement)
+del_ele = L.deleteNode(5)
+print("Deleted Element",del_ele)
 L.display()
 print("Size of the list",len(L))
+
 
 
