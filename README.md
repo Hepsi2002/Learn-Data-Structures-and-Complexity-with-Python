@@ -22,3 +22,13 @@
 ↪Radix sort
 ## **Linked List**
 ↪Implementation of the linked list and display the list
+
+↪Insert at beginning
+
+↪Insert anywhere
+
+↪Delete at beginning
+
+↪Delete at end
+
+↪Delete anywhere
