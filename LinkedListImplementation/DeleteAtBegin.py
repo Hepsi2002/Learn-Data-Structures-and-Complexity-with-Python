@@ -61,21 +61,6 @@ class LinkedList:
         if self.isempty():
             self._tail = None#When only single node is present and is deleted we then explicitly make the tail as none.
         return e
-    def delete_end(self):#We cannot directly delete the tail. Since we cannot move backwards from tail using next reference
-       if self.isempty():
-            print('Empty List')
-            return
-       p = self._head
-       i = 1
-       while i < len(self) - 1:#last but one node to make it null so there will be no link to next node
-           p = p._next
-           i = i + 1
-       self._tail = p#last but one node will be tail
-       p = p._next#to the last node the p is incremented as we need the value that is deleted
-       e = p._element#last node element
-       self._tail._next = None#breaking the link and making the last but one node as none.
-       self._size -= 1
-       return e
 
     def search(self,key):
         p = self._head#To keep track of node & the linked list
@@ -101,20 +86,15 @@ L.addlast(6)
 L.addlast(12)
 L.addlast(12)
 L.addlast(8)
-L.insert_begin(9)
-L.insert_begin(5)
-L.display()
-L.insert(25,4)
-L.insert(52,8)
+L.addlast(7)
+L.addlast(48)
+L.addlast(9)
 L.display()
 print("Size of the list",len(L))
 del_firstelement = L.delete_begin()
 print("Deleted First Element",del_firstelement)
 L.display()
 print("Size of the list",len(L))
-del_lastelement = L.delete_end()
-print("Deleted Last Element",del_lastelement)
-L.display()
-print("Size of the list",len(L))
+
 
 
