@@ -18,13 +18,15 @@ class LinkedList:
     def isempty(self):#this is our own defined method.Where as __init__ and __len__ are built-in class level functions.
         return self._size == 0 #True if size empty and false if size is not zero
     def addlast(self,e):#value of the element to be inserted.
-        newest = _Node(e,None)
+        newest = _Node(e,None)#Object is created
         if self.isempty():
-            self._head = newest
+            self._head = newest#This points to the first node(Newest node)
         else:
-            self._tail._next = newest
-        self._tail = newest
-        self._size += 1
+            self._tail._next = newest#Link is created
+        self._tail = newest#The newest element will have its tail none.
+        self._size += 1#Sizeis incremented as new node is added
+    #Time complexity is O(1) takes unit time to compute.
+
 
     def insert_begin(self,e):
         newest = _Node(e,None)#New node is created
@@ -74,9 +76,11 @@ L.addlast(6)
 L.addlast(12)
 L.addlast(12)
 L.addlast(8)
-L.insert_begin(9)
-L.insert_begin(5)
+L.addlast(7)
+L.addlast(48)
+L.addlast(9)
 L.display()
+print("Size of the list",len(L))
 L.insert(25,4)
 L.insert(52,8)
 L.display()
