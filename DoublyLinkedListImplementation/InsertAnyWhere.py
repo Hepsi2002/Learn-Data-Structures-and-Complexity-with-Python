@@ -78,6 +78,6 @@ d.insert(10,4)
 d.insert(4,5)
 d.display()
 d.displayrev()
-
+print('Size:',len(d))
 
 
