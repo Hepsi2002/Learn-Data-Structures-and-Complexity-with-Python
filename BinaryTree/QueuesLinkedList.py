@@ -48,14 +48,3 @@ class QueueLinked:
             print(p._element,end='<--')
             p = p._next
         print()
-
-ql = QueueLinked()
-ql.enqueue(3)
-ql.enqueue(8)
-ql.enqueue(14)
-ql.display()
-print('Length',len(ql))
-print('First Element',ql.first())
-print('Dequeue element',ql.dequeue())
-ql.display()
-
